@@ -22,10 +22,10 @@ export default function App() {
         seconds={seconds}
         setSeconds={setSeconds}
       />
-      {/* <Timer
+      <Timer
         seconds={seconds}
         setSeconds={setSeconds}
-      /> */}
+      />
       {console.log(Timer)}
     </VStack >
   )

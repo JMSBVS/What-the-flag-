@@ -122,7 +122,7 @@ export default function (props) {
                 >
                     <Image
                         objectFit="contain"
-                        src="public/flag-regular.svg"
+                        src="flag-regular.svg"
                         maxHeight="150px"
                         borderRadius='md'
                         display={showBtns ? "none" : ""}
