@@ -3,10 +3,14 @@ import { VStack } from '@chakra-ui/react'
 import Header from './Components/Header'
 import Game from './Components/Game'
 import Timer from './Components/Timer'
+import Endgame from './Components/Endgame'
 
 export default function App() {
 
-  const [seconds, setSeconds] = useState(30);
+  const [seconds, setSeconds] = useState(5);
+  const [score, setScore] = useState(0);
+  const [startButtonClicked, setStartButtonClicked] = useState(false)
+
 
   return (
     <VStack
@@ -21,12 +25,21 @@ export default function App() {
       <Game
         seconds={seconds}
         setSeconds={setSeconds}
+        startButtonClicked={startButtonClicked}
+        setStartButtonClicked={setStartButtonClicked}
+        score={score}
+        setScore={setScore}
       />
-      {/* <Timer
+      <Endgame
+        score={score}
+        seconds={seconds}
+      // display={seconds ? "none" : ""}
+      />
+      <Timer
         seconds={seconds}
         setSeconds={setSeconds}
-      /> */}
-      {console.log(Timer)}
+        startButtonClicked={startButtonClicked}
+      />
     </VStack >
   )
 }

@@ -5,6 +5,7 @@ import data from "../../data";
 export default function (props) {
 
     let allAnswers = []
+    let userAnswer = []
     const btnOne = document.querySelector(".btn-one");
     const btnTwo = document.querySelector(".btn-two");
     const btnThree = document.querySelector(".btn-three");
@@ -53,9 +54,11 @@ export default function (props) {
         }
     }, [answers.rightAnswer, answers.wrongAnswerOne, answers.wrongAnswerTwo, answers.wrongAnswerThree])
 
+
     const startGame = () => {
         generateAnswers()
         setShowBtns(hide => !hide);
+        props.setStartButtonClicked(!props.startButtonClicked);
     }
 
     function generateAnswers() {
@@ -100,11 +103,19 @@ export default function (props) {
         }
     }
 
-    const handleClick = () => {
-        feedback()
-        setTimeout(() => {
-            generateAnswers();
-        }, 500)
+    const handleClick = (btnId) => {
+        if (props.seconds) {
+            feedback()
+            setTimeout(() => {
+                generateAnswers();
+            }, 500)
+            console.log(btnId.target.innerText)
+            console.log(answers.rightAnswer)
+            if (btnId.target.innerText === answers.rightAnswer) {
+                props.setScore(props.score + 1)
+            }
+            console.log(props.score)
+        }
     }
 
     return (
@@ -154,6 +165,7 @@ export default function (props) {
                     w="90%"
                     mt="100px"
                     display={showBtns ? "none" : ""}
+
                 >
                     Start!
                 </Button>
