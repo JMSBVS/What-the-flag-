@@ -7,7 +7,7 @@ import Endgame from './Components/Endgame'
 
 export default function App() {
 
-  const [seconds, setSeconds] = useState(5);
+  const [seconds, setSeconds] = useState(30);
   const [score, setScore] = useState(0);
   const [startButtonClicked, setStartButtonClicked] = useState(false)
 
