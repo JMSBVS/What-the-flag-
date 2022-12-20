@@ -69,14 +69,15 @@ export default function (props) {
         const randTwo = Math.floor(Math.random() * data.length)
         const randThree = Math.floor(Math.random() * data.length)
         const randFour = Math.floor(Math.random() * data.length)
-        const url = 'https://countryflagsapi.com/svg/'
+        const url = 'https://flagcdn.com/'
+
         setAnswers(prevAnswers => {
             return {
                 ...prevAnswers,
                 wrongAnswerOne: data[randOne].name,
                 wrongAnswerTwo: data[randTwo].name,
                 wrongAnswerThree: data[randThree].name,
-                flagURL: url + data[randFour].code,
+                flagURL: url + data[randFour].code.toLowerCase() + ".svg",
                 rightAnswer: data[randFour].name
             }
         })
